@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        .content{
+            width: 200px;
+            height: 80px;
+            margin: 40px;
+            position: absolute;
+            overflow: hidden;
+        }
+        .no-active{
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            display: none;
+        }
+        /*.active{*/
+            /*display: block;*/
+        /*}*/
+        .a-middle{
+            display: block;
+
+            left: 0%;
+        }
+        .a-left{
+            display: block;
+
+            left: -100%;
+        }
+        .a-right{
+            display: block;
+
+            left: 100%;
+        }
+
+        .step{
+            float: left;
+            margin-top: 200px;
+            margin-left: 40px;
+            background-color: yellow;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="content">
+    <div class="no-active active index-1 a-middle" style="background-color: red">1</div>
+    <div class="no-active active index-2 a-right" style="background-color: #ffffff">2</div>
+    <div class="no-active to-active index-3" style="background-color: #000000">3</div>
+    <div class="no-active active index-4 a-left" style="background-color: lawngreen">4</div>
+</div>
+
+<a class="prev-step step">prev</a>
+<a class="next-step step">next</a>
+
+<script src="../../zepto/zepto.js"></script>
+<script src="../../zepto/event.js"></script>
+<script src="../../zepto/fx.js"></script>
+<script src="../../zepto/fx_methods.js"></script>
+<script>
+    $('.next-step').click(function() {
+        $('.a-right').removeClass('a-right').addClass('to-active').css('left','0%');
+        $('.a-middle').animate({'left':'100%'},200).removeClass('a-middle').addClass('a-right');
+        $('.a-left').animate({'left':'0%'},200).removeClass('a-left').addClass('a-middle');
+    });
+</script>
+</body>
+</html>

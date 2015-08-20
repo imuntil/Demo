@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <meta name="format-detection" content="telephone=no" />
+    <title>康宝来</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="page-items cant-swipe youth3_wrapper">
+    <div class="youth3_upload">
+        <img class="hbl-photos hbl-photo-4" src="img/20395376.jpg"  alt=""/>
+        <!--<div class="youth3_hint">-->
+            <!--<img src="img/hint.png" width="100%" alt=""/>-->
+        <!--</div>-->
+        <!--<a href="javascript:void(0)" class="pick-photo">-->
+            <!--<img src="img/add_icon.png" width="100%" alt=""/>-->
+        <!--</a>-->
+    </div>
+    <div class="youth3_footer">
+        <i></i>
+        <input type="text" value="康宝莱正如跳动的音符" placeholder="康宝莱正如跳动的音符" class="youth3_input1 c-i"/>
+        <input type="text" value="奏响了属于我们的青春乐章" placeholder="奏响了属于我们的青春乐章" class="youth3_input2 c-i"/>
+    </div>
+    <!--<div class="canvas_area" style="display: none">-->
+    <!--</div>-->
+    <!--<div class="logo">-->
+        <!--<img src="img/logo.png" width="100%" alt=""/>-->
+    <!--</div>-->
+    <!--<a href="javascript:void(0)" class="prev to-prev">-->
+        <!--<img src="img/pre_arrow.png" width="55%" alt=""/>-->
+        <!--返回修改-->
+    <!--</a>-->
+    <!--<a href="javascript:void(0)" class="music_icon">-->
+        <!--<img src="img/music_icon.png" width="100%" alt=""/>-->
+    <!--</a>-->
+        <!--<span class="next_arrow to-next">-->
+            <!--<img src="img/next_arrow.png" width="100%" alt=""/>-->
+        <!--</span>-->
+    <!--<p class="canvas_hint">-->
+        <!--请用手指擦一擦-->
+    <!--</p>-->
+</div>
+<script src="js/zepto.js"></script>
+<script>
+
+//    translate3d(-20px, 0px, 0px) scale(0.888889, 0.888889)
+var W = 320;
+//新宽度
+var NewW = $(window).width();
+//图片缩放比例重新计算
+var scale = NewW/W;
+//图片X轴坐标比例重新计算
+var scaleX = W/NewW;
+var trasnX = -203 * scaleX;
+var scaleNum = 0.44137 * scale;
+
+var value = [
+    'translate3d(' + trasnX + 'px, ' + 0 + 'px, 0)',
+    'scale(' + scaleNum + ', ' + scaleNum + ')'
+];
+value = value.join(" ");
+
+var img = document.querySelector('.hbl-photo-4');
+img.style.webkitTransform = value;
+img.style.mozTransform = value;
+img.style.transform = value;
+
+</script>
+</body>
+</html>

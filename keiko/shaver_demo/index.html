@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <style>
+        body{
+            background-color: #eeeeee;
+        }
+        #f-content{
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            overflow: hidden;
+        }
+        #f-btn{
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+        #c{
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+        }
+
+
+        #deco-shaver-list{
+            height: 50px;
+            width: 200px;
+            position: absolute;
+            left: 10px;
+            bottom: 100px;
+        }
+        #deco-shaver-list img{
+            float: left;
+            margin-left: 10px;
+        }
+
+        #f-content .deco{
+            position: absolute;
+            z-index: 10;
+        }
+        #deco-shaver{
+            top: 100px;
+            left: 100px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="f-content">
+    <img src="" id="photo-file">
+    <img src="" class="deco" id="deco-glass">
+    <img src="" class="deco" id="deco-shaver">
+    <img src="" class="deco" is="deco-tie">
+</div>
+
+<div id="deco-shaver-list">
+    <img src="img/s-1.jpg" height="100%">
+    <img src="img/s-2.jpg" height="100%">
+</div>
+<div id="deco-glass-list"></div>
+<div id="deco-tie-list"></div>
+<input type="file" id="f-btn">
+<button id="c">合成</button>
+
+<img src="" id="show" style="position: absolute; top: 100%">
+
+<script src="js/zepto.js"></script>
+<script src="js/Hammer.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/megapix-image.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+<div id="touch-area" style="margin: 20px 20px; width: 240px; height: 300px; background-color: #aaaaaa"></div>
+<p id="status"></p>
+<script>
+    var ta = document.querySelector('#touch-area');
+    ta.addEventListener('touchstart', touchStart, false);
+    ta.addEventListener('mousedown', touchStart, false);
+    ta.addEventListener('touchmove', touchMove, false);
+    ta.addEventListener('mousemove', touchMove, false);
+    ta.addEventListener('touchend', touchEnd, false);
+    ta.addEventListener('mouseup', touchEnd, false);
+
+    var mouseDown = false;
+
+
+//    var status = $('#id');
+
+    function touchStart(e) {
+        mouseDown = true;
+        console.log(getPage(e, 'pageX'));
+//        status.test()
+    }
+    function touchMove(e) {
+        if (!mouseDown) return;
+        console.log(getPage(e, 'pageX'));
+    }
+    function touchEnd(e) {
+        if (!mouseDown) return;
+        mouseDown = false;
+        console.log(getPage(e, 'pageX'));
+    }
+
+
+    function getPage(event, page) {
+        return event.changedTouches ? event.changedTouches[0][page] : event[page];
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body style="background-color: #000000">
+<div id="coffee_flow" style="height: 44px"></div>
+<script src="../../zepto/zepto.js"></script>
+<script src="../../zepto/event.js"></script>
+<script src="../../zepto/fx.js"></script>
+<script src="coffee.js"></script>
+<script>
+    $('#coffee_flow').coffee({
+        steams				: ["<img src='audio_widget_012x.png' />","<img src='audio_widget_01@2x.png' />"],
+        steamHeight			: 100,
+        steamWidth			: 44
+    });
+
+    $.fn.coffee.start();
+</script>
+</body>
+</html>

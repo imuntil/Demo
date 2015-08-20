@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        *{
+            -webkit-transition-timing-function: ease-in-out;
+            -moz-transition-timing-function: ease-in-out;
+            -ms-transition-timing-function: ease-in-out;
+            -o-transition-timing-function: ease-in-out;
+            transition-timing-function: ease-in-out;
+        }
+        .m-page{
+            width: 200px;
+            height: 300px;
+            position: absolute;
+            /*margin: 30px;*/
+            display: block;
+        }
+        .p-content{
+            overflow: hidden;
+            margin: 30px;
+            background-color: #000000;
+        }
+        .m-hide{
+            -webkit-transform: translateY(100%) rotate(0) translateZ(0);
+            -moz-transform: translateY(100%) rotate(0) translateZ(0);
+            transform: translateY(100%) rotate(0) translateZ(0);
+            -webkit-transition: -webkit-transform 1s ease-in-out;
+            -moz-transition: -moz-transform 1s ease-in-out;
+            transition: transform 1s ease-in-out;
+        }
+        .page-1 {
+            background-color: hotpink;
+            opacity: 1;
+        }
+        .page-2 {
+            background-color: yellow;
+        }
+
+        .z-hide{
+            opacity: 0.2;
+
+            -webkit-transform: translateY(-100%) rotate(0) translateZ(0) scaleX(0.7) scaleY(0.7);
+               -moz-transform: translateY(-100%) rotate(0) translateZ(0) scaleX(0.7) scaleY(0.7);
+                    transform: translateY(-100%) rotate(0) translateZ(0) scaleX(0.7) scaleY(0.7);
+
+            -webkit-transition: all 1.5s ease-in-out;
+               -moz-transition:  all 1.5s ease-in-out;
+                    transition:   all 1.5s ease-in-out;
+        }
+
+        .z-show{
+            -webkit-transform: translateY(0%) rotate(0) translateZ(0);
+            -moz-transform: translateY(0%) rotate(0) translateZ(0);
+            transform: translateY(0%) rotate(0) translateZ(0);
+            -webkit-transition: -webkit-transform 1s ease-in-out;
+            -moz-transition: -moz-transform 1s ease-in-out;
+            transition: transform 1s ease-in-out;
+        }
+
+        /*.m-show{*/
+            /*-webkit-transform: translateY(0%) rotate(0) translateZ(0);*/
+            /*-moz-transform: translateY(0%) rotate(0) translateZ(0);*/
+            /*transform: translateY(0) rotate(0) translateZ(0);*/
+            /*-webkit-transition: -webkit-transform 1.5s ease-in-out;*/
+            /*-moz-transition: -moz-transform 1.5s ease-in-out;*/
+            /*transition: transform 1.5s ease-in-out;*/
+        /*}*/
+
+    </style>
+</head>
+<body>
+<div class="m-page p-content">
+    <div class="page-1 m-page m-show"></div>
+    <div class="page-2 m-page m-hide"></div>
+</div>
+
+<a>click-.-</a>
+<script src="../../zepto/zepto.js"></script>
+<script src="../../zepto/event.js"></script>
+<script>
+    $('a').on('click', function() {
+        $('.page-1').toggleClass('z-hide');
+        $('.page-2').toggleClass('z-show');
+    });
+</script>
+</body>
+</html>

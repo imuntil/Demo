@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <meta name="format-detection" content="telephone=no" />
+    <title>康宝来</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="page-items amazing1_wrapper">
+    <div class="amazing1_container">
+        <div class="amazing_upload">
+            <div class="upload_area">
+                <!--<img src="img/amazing_photo.png" class="hbl-photos hbl-photo-1" width="100%" alt=""/>-->
+                <img src="img/20395376.jpg" class="hbl-photos hbl-photo-1" alt=""/>
+            </div>
+        </div>
+        <div class="last">
+            <img src="img/amazing_container.png" width="100%" alt=""/>
+            <!--<a href="javascript:void(0)" class="pick-photo" data-class="hbl-photo-1">-->
+                <!--<img src="img/add_icon.png" width="100%" alt=""/>-->
+            <!--</a>-->
+        </div>
+
+        <!--<img src="img/amazing_upload.png" width="30%" alt="" class="one"/>-->
+        <input type="text" value="2008年7月以前" placeholder="2008年7月以前" class="c-i amazing_input1 local-date"/>
+        <input type="text" value="我的生活平凡如常" placeholder="我的生活平凡如常" class="c-i amazing_input2"/>
+        <input type="text" value="直到那一天我走进康宝莱" placeholder="直到那一天我走进康宝莱" class="c-i amazing_input3"/>
+        <input type="text" value="才发现自己的世界也可以如此宽广" placeholder="才发现自己的世界也可以如此宽广" class="c-i amazing_input4"/>
+    </div>
+    <!--<div class="logo">-->
+        <!--<img src="img/logo.png" width="100%" alt=""/>-->
+    <!--</div>-->
+    <!--<a href="javascript:void(0)" class="prev to-prev">-->
+        <!--<img src="img/pre_arrow.png" width="55%" alt=""/>-->
+        <!--返回修改-->
+    <!--</a>-->
+    <!--<a href="javascript:void(0)" class="music_icon">-->
+        <!--<img src="img/music_icon.png" width="100%" alt=""/>-->
+    <!--</a>-->
+        <!--<span class="next_arrow to-next">-->
+            <!--<img src="img/next_arrow.png" width="100%" alt=""/>-->
+        <!--</span>-->
+</div>
+<script src="js/zepto.js"></script>
+<script>
+    var a1l=($("body").width()-$(".amazing1_container").width())/2;
+    $(".amazing1_container").css("left",a1l);
+//    translate3d(-280px, -206px, 0px) scale(0.25, 0.25)
+
+    var value = [
+        'translate3d(' + -280 + 'px, ' + -206 + 'px, 0)',
+        'scale(' + 0.25 + ', ' + 0.25 + ')'
+    ];
+    value = value.join(" ");
+
+    var img = document.querySelector('.hbl-photo-1');
+    img.style.webkitTransform = value;
+    img.style.mozTransform = value;
+    img.style.transform = value;
+</script>
+</body>
+</html>

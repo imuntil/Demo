@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <title></title>
+    <style>
+        .inner ,.inners{
+            width: 0px;
+            height: 150px;
+            margin-right: 10px;
+            float: right;
+            text-align: center;
+            line-height: 140px;
+
+            transition: transform 300ms, opacity 200ms;
+            -moz-transition: -moz-transform 300ms, opacity 200ms;
+            -webkit-transition: -webkit-transform 300ms, opacity 200ms;
+        }
+        .inners{
+            width: 70px;
+            margin-top: 10px;
+        }
+        .a{
+            background-color: red;
+        }
+        .b{
+            background-color: blue;
+        }
+        .c{
+            background-color: coral;
+        }
+
+        .swipeing{
+            transform:translate(0, 200px);
+            -moz-transfrom:translate(0, 200px);
+            -webkit-transform:translate(0, 200px);
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+<div style="width: 300px; height: 150px; overflow: hidden; border: solid 1px #000; background-color: deepskyblue; position: absolute">
+    <div class="inner-content" style="width: 560px; height: 140px; position: absolute; top: 5px; right: -80px; background-color: #fff; overflow: hidden">
+        <!--<div class="inners a">A</div>-->
+        <!--<div class="inners b">B</div>-->
+        <!--<div class="inners c">C</div>-->
+        <!--<div class="inners a">A</div>-->
+    </div>
+</div>
+<div style="position: absolute; bottom: 30px; left: 10px">A x <span id="number"></span></div>
+<div id="fail" style="position: absolute; bottom: 10px; left: 10px"></div>
+<a href="?" style="position: absolute; bottom: 10px; right: 10px">refresh</a>
+<a id="start" style="position: absolute; bottom: 40px; right: 10px">start</a>
+<script src="zepto.js"></script>
+<script src="zepto-touch.js"></script>
+<script>
+    var ar = ['A', 'B', 'C'];
+    var mono = {'A':'beer', 'B':'boom', 'C':'gas'}
+    var content = $('.inner-content');
+    var WIDTH = 70;
+    var Speed = 5;
+    var Stop = false;
+    var countEle = $('#number'), counts = 0;
+
+    function addDiv() {
+        var t = ar[Math.random()*3 | 0];
+        var h = '<div class="inner ' + t.toLowerCase() +'" >'+mono[t]+'</div>';
+        content.prepend(h);
+        var divs = content.find('div');
+//        divs.eq(0).one('click', function() {
+//            if ($(this).is('.a')) {
+//                $(this).addClass('has-clicked');
+//                counts += 1;
+//                countEle.test(counts);
+//            } else {
+//                console.log('failure!!! error');
+//                Stop = true;
+//            }
+//        });
+
+        divs.eq(0).swipeDown(function(e) {
+            var _class = $(this).attr('class');
+            $(this).addClass('swipeing');
+
+            if ($(this).is('.a')) {
+                $(this).addClass('has-clicked');
+                counts += 1;
+                countEle.text(counts);
+            } else {
+                var _c = spiltClass(_class).toUpperCase()
+                console.log('failure!!! wrong ' + mono[_c]);
+                $('#fail').text('failure!!! wrong ' + mono[_c]);
+                Stop = true;
+            }
+        });
+
+        widthIn(divs.eq(0));
+
+        if (divs.get().length > 6) {
+            var q6 = divs.eq(6);
+            if (q6.is('.a') && !q6.is('.has-clicked')) {
+                Stop = true;
+                console.log('failure!!!miss');
+                $('#fail').text('failure!!! miss');
+                return;
+            }
+            divs.eq(6).remove();
+        }
+    }
+
+    function widthIn(elem, interval) {
+
+        if (+elem.css('width').replace('px','') < WIDTH) {
+
+            if (Speed < 3) {
+                Speed = 3;
+            } else {
+                Speed -= 0.025;
+            }
+
+            interval = interval || 16;
+            var last = +new Date();
+            var tick = function() {
+                var w = +elem.css('width').replace('px','');
+                var nw = w + (new Date() - last)/Speed > WIDTH ? WIDTH : (w + (new Date() - last)/Speed | 0);
+                elem.css('width', nw + 'px');
+                last = +new Date();
+
+                if (Stop) {
+                    return;
+                }
+                if (+elem.css('width').replace('px','') < WIDTH) {
+                    setTimeout(tick, interval);
+                } else {
+                    addDiv();
+                }
+            };
+            tick();
+        }
+    }
+
+
+    function spiltClass(classes) {
+        var c = classes.replace(/^\s+|\s+$/g, '').split(' ');
+        var tc = undefined;
+        ['a', 'b', 'c'].forEach(function(_class) {
+            if (c.indexOf(_class) != -1) {
+                tc = _class;
+                return true;
+            }
+        });
+        return tc;
+    }
+
+    document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+
+    $('#start').click(function() {
+        addDiv();
+    });
+
+</script>
+</body>
+</html>
