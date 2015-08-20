@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>jQuery老虎机插件slotmachine</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2.0">
+
+    <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.slotmachine.js"></script>
+
+</head>
+
+<body>
+<div class="line" style="padding-top:50px;">
+
+    <div class="content" style="text-align: center; background: url('./img/machine.png') no-repeat 50% 120px; height: 500px;">
+
+        <div style="clear:both">
+            <p class="title">随意构建你的赌场! </p>
+        </div>
+
+        <div style="clear:both; margin-top: 250px;">
+            <div id="machine4" class="slotMachine" style="margin-left: -65px;">
+                <div class="slot slot1"></div>
+                <div class="slot slot2"></div>
+                <div class="slot slot3"></div>
+                <div class="slot slot4"></div>
+                <div class="slot slot5"></div>
+                <div class="slot slot6"></div>
+            </div>
+
+            <div id="machine5" class="slotMachine">
+                <div class="slot slot1"></div>
+                <div class="slot slot2"></div>
+                <div class="slot slot3"></div>
+                <div class="slot slot4"></div>
+                <div class="slot slot5"></div>
+                <div class="slot slot6"></div>
+            </div>
+
+            <div id="machine6" class="slotMachine">
+                <div class="slot slot1"></div>
+                <div class="slot slot2"></div>
+                <div class="slot slot3"></div>
+                <div class="slot slot4"></div>
+                <div class="slot slot5"></div>
+                <div class="slot slot6"></div>
+            </div>
+
+            <script>
+                $(document).ready(function(){
+                    var machine4 = $("#machine4").slotMachine({
+                        active	: 0,
+                        delay	: 500
+                    });
+
+                    var machine5 = $("#machine5").slotMachine({
+                        active	: 1,
+                        delay	: 500
+                    });
+
+                    var machine6 = $("#machine6").slotMachine({
+                        active	: 2,
+                        delay	: 500
+                    });
+
+                    $("#slotMachineButtonShuffle").click(function(){
+
+                        machine4.shuffle();
+
+                        setTimeout(function() {
+                            machine5.shuffle();
+                        }, 500);
+
+                        setTimeout(function() {
+                            machine6.shuffle();
+                        }, 1000);
+
+
+                        /**
+                         * 在此请求抽奖接口，成功之后回调调用slotStop函数，如果返回中奖，则传递index参数给
+                         * slotStop函数，参数 index需满足 >=0， 同时< $('#machine4 .slot').get().length;
+                         * 如果没有中奖，则不要传递参数index，slotStop函数会随机3个不同的图案。
+                         */
+                        setTimeout(function() {
+                            slotStop()
+                        }, 2000);
+                    });
+
+
+                    function slotStop(index) {
+
+                        var a = getRandom();
+
+                        if (index != undefined) {
+                            a = [index, index, index];
+                        }
+
+                        machine4.goAndStop(a[0]);
+
+                        setTimeout(function() {
+                            machine5.goAndStop(a[1]);
+                        }, 500);
+
+                        setTimeout(function() {
+                            machine6.goAndStop(a[2]);
+                        }, 1000);
+                    }
+
+                    function getRandom() {
+                        var _l = $('#machine4 .slot').get().length;
+                        var _a = [];
+
+                        for (var i = 0; i < _l; i++) {
+                            _a.push(i);
+                        }
+
+                        var _ra = [];
+
+                        t();
+                        t();
+                        t();
+
+                        function t() {
+                            var _i = Math.random() * _a.length | 0;
+                            console.log(_a.length);
+                            _ra.push(_a[_i]);
+                            _a.splice(_i, 1);
+                        }
+
+                        console.log(_ra);
+                        return _ra;
+                    }
+
+                });
+            </script>
+        </div>
+
+    </div>
+
+    <div class="content" style="padding-left:500px; margin-top:-60px">
+        <div id="slotMachineButtonShuffle" class="slotMachineButton" style="font-size: 25px">Shuffle!</div>
+        <!--<div id="slotMachineButtonStop" class="slotMachineButton" style="font-size: 25px">Stop!</div>-->
+    </div>
+
+</div>
+</body>
+</html>
