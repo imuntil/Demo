@@ -1,0 +1,844 @@
+
+@charset "utf-8";
+/* =reset 网页样式重置
+------------------------------------------------------------------------------------------------------------------------------*/
+html { font-size:1em;-webkit-tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight:rgba(0,0,0,0);-webkit-text-size-adjust:none;overflow:-moz-scrollbars-vertical;/*强制firefox出现滑动条*/}
+body { font-size:0.75em;}
+label { cursor:pointer;}
+a:link, a:visited { text-decoration:none;}
+input:focus { outline: none; }
+input,button,select,textarea{outline:none;/*-webkit-appearance:none;*//*强制去除表单自带的样式*/ }
+textarea{resize:none;/*-webkit-appearance:none;*//*强制去除textarea自带的样式*/ }
+
+input:-webkit-autofill { -webkit-box-shadow: 0 0 0px 1000px white inset; } /*利用阴影来填充掉input自动填充色*/
+
+textarea,input,select { background: none; border:none; margin: 0; padding: 0; }
+
+a, abbr, acronym, address, applet, article, aside, audio, b, blockquote, big, body, center, canvas, caption, cite, code, command, datalist, dd, del, details, dfn, dl, div, dt, em, embed, fieldset, figcaption, figure, font, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, keygen, label, legend, li, meter, nav, menu, object, ol, output, p, pre, progress, q, s, samp, section, small, span, source, strike, strong, sub, sup, table, tbody, tfoot, thead, th, tr, tdvideo, tt,
+u, ul, var { margin:0; padding:0;}
+
+article, aside, footer, header, hgroup, nav, section, figure, figcaption { display: block;} /*html5设置*/
+
+h1, h2, h3, h4, h5, h6, th, td, table, input, button, select, textarea, sub{ font-size:1em;}
+body, input, button, select, textarea, sub{ font-family:Arial, sans-serif;}
+em, cite, address, optgroup { font-style:normal;}
+kbd, samp, code { font-family:monospace;}
+
+img, input, button, select, textarea { vertical-align:middle;outline:none;}
+ul, ol { list-style:none;}
+img, fieldset { border:0;}
+abbr, acronym { cursor:help; border-bottom:1px dotted black;}
+table {	width:100%; border-spacing:0; border:0;}
+table th, table td { border:0;}
+legend, hr { overflow:hidden; position:absolute; top:0; left:0;}
+legend, hr, caption { visibility:hidden; font-size:0; width:0; height:0; line-height:0;}
+
+/**
+ * = global 统一样式
+ *******************************************************************************************************/
+/* 改变动画的效果方式*/
+* {
+    transition-timing-function: ease-in-out;
+}
+html {height: 100%;}
+body { position: relative; font-family:"微软雅黑"; width: 640px; max-width: 640px; min-width: 640px; height: 100%; margin: 0 auto; overflow:hidden;background:#000; }
+body h1,body h2,body h3,body h4,body h5,body h6,body strong,body em {font-weight:normal; } /*微软雅体 将原有的bold属性去掉*/
+
+textarea:focus,input:focus { border: 1px solid #71b643; }
+div{transform:translate3d(0,0,0);}
+section{transform:translate3d(0,0,0);}
+a{transform:translate3d(0,0,0);}
+/**
+ * = 内容样式
+ *******************************************************************************************************/
+.abs {
+    position:absolute;
+}
+#container{
+    position:absolute;
+    width:640px;
+    height:100%;
+    left:0;
+    top:0;
+    bottom:0;
+    right:0;
+    -webkit-overflow-scrolling : touch;
+    background:#000;
+}
+
+#container_in{
+    position:relative;
+    width:640px;
+    height:1008px;
+    overflow:hidden;
+    -webkit-overflow-scrolling : touch;
+}
+
+.dot{
+    width:34px;
+    height:34px;
+    border-radius:20px;
+    background:#FFF;
+    opacity:0.7;
+    transform:scale(0.3,0.3);
+    -webkit-transform: translateZ(0);
+}
+
+.dotani1{
+
+}
+.dotani2{
+
+}
+.dotani3{
+
+}
+.dotani4{
+
+}
+
+.dot1{
+    left:302px;
+    top:6px;
+}
+
+.dot2{
+    left:302px;
+    top:2px;
+}
+.dot3{
+    left:405px;
+    top:-4px;
+}
+.dot4{
+    left:302px;
+    top:-4px;
+}
+/**
+ * Section1
+ ********************************************************************************************************/
+#section1{
+    width:640px;
+    height:1040px;
+    background:#000 url(../img/queueb/star0000.jpg) no-repeat;
+    background-size: cover;
+}
+#section1 #html5Loader{
+    width:640px;
+    text-align:center;
+    font-family:Verdana, Geneva, sans-serif;
+    font-size:24px;
+    color:#999;
+    margin-top:490px;
+    top:0;
+    z-index:3;
+}
+
+#section1 #starsky{
+    width:640px;
+    height:1040px;
+    background:#000 url(../img/queueb/star0001.jpg) no-repeat;
+    background-size: cover;
+    top:0;
+    animation: shine1 0.8s linear 0s infinite alternate;
+}
+
+#section1 #s1{ top:0;}
+
+#section1 .text1{
+    width:640px;
+    height:650px;
+    margin-top:108px;
+    visibility:hidden;
+    opacity:0;
+}
+#section1 .text2{
+    width:640px;
+    height:170px;
+    visibility:hidden;
+    opacity:0;
+}
+
+/**
+ * Section2
+ ********************************************************************************************************/
+#section2{
+    width:640px;
+    height:1008px;
+    visibility:hidden;
+    opacity:0;
+    background:url(../img/03-6-1.jpg) no-repeat;
+}
+#section2 .shine{
+    width:640px;
+    height:1008px;
+    background:url(../img/03-6-2.jpg) no-repeat;
+    opacity:0;
+    animation: shine1 1s linear 0s infinite alternate;
+}
+
+#section2 .text1{
+    width:640px;
+    height:45px;
+    margin-top:180px;
+    visibility:hidden;
+    opacity:0;
+}
+#section2 .text2{
+    width:640px;
+    height:49px;
+    visibility:hidden;
+    opacity:0;
+}
+#section2 .text3{
+    width:640px;
+    height:203px;
+    visibility:hidden;
+    opacity:0;
+    bottom:0;
+    background:url(../img/02-3.png) no-repeat;
+}
+
+/**
+ * Section3
+ ********************************************************************************************************/
+#section3{
+    width:640px;
+    height:1008px;
+    visibility:hidden;
+    opacity:0;
+    background:url(../img/04.jpg) no-repeat;
+}
+#section3 .text1{
+    width:640px;
+    height:52px;
+    margin-top:576px;
+    visibility:hidden;
+    opacity:0;
+}
+#section3 .text2{
+    width:640px;
+    height:58px;
+    visibility:hidden;
+    opacity:0;
+}
+
+/**
+ * Section4
+ ********************************************************************************************************/
+#section4{
+    width:640px;
+    height:1008px;
+    visibility:hidden;
+    opacity:0;
+    background:url(../img/queuec/sand_00.jpg) no-repeat;
+}
+#section4 #s2{ top:0;}
+#section4 .text1{
+    width:640px;
+    height:41px;
+    margin-top:339px;
+    visibility:hidden;
+    opacity:0;
+}
+#section4 .text2{
+    width:640px;
+    height:50px;
+    visibility:hidden;
+    opacity:0;
+}
+#section4 .text3{
+    width:640px;
+    height:50px;
+    visibility:hidden;
+    opacity:0;
+}
+#section4 .text4{
+    width:640px;
+    height:200px;
+    visibility:hidden;
+    opacity:0;
+    bottom:0;
+    background:url(../img/05-4.png) no-repeat;
+}
+
+
+/**
+ * Section5
+ ********************************************************************************************************/
+#section5{
+    width:640px;
+    height:1008px;
+    visibility:hidden;
+    opacity:0;
+    overflow:hidden;
+}
+#section5 .in{
+    width:1055px;
+    height:1008px;
+    background:url(../img/06.jpg) no-repeat;
+    transform:translate(0,0,0);
+}
+#section5 .text1{
+    width:640px;
+    height:51px;
+    margin-top:250px;
+    visibility:hidden;
+    opacity:0;
+}
+#section5 .text2{
+    width:640px;
+    height:50px;
+    visibility:hidden;
+    opacity:0;
+}
+#section5 .text3{
+    width:640px;
+    height:50px;
+    visibility:hidden;
+    opacity:0;
+}
+#section5 .text4{
+    width:640px;
+    height:197px;
+    visibility:hidden;
+    opacity:0;
+    bottom:0;
+    background:url(../img/06-1.png) no-repeat;
+}
+#section5 .hand{
+    width:49px;
+    height:94px;
+    background:url(../img/hand.png) no-repeat;
+    margin-top:13px;
+    transform:translate(338px,0);
+    animation: hand_move 1.5s linear 0s infinite;
+}
+
+#section5 .text5{
+    width:640px;
+    height:200px;
+    visibility:hidden;
+    opacity:0;
+    bottom:0;
+    background:url(../img/06-2.png) no-repeat;
+}
+
+/**
+ * Section6
+ ********************************************************************************************************/
+#section6{
+    width:640px;
+    height:1008px;
+    visibility:hidden;
+    opacity:0;
+    overflow:hidden;
+    background:url(../img/07.jpg) no-repeat;
+}
+
+#section6 .text1{
+    width:640px;
+    height:48px;
+    margin-top:547px;
+    visibility:hidden;
+    opacity:0;
+}
+#section6 .text2{
+    width:640px;
+    height:51px;
+    visibility:hidden;
+    opacity:0;
+}
+#section6 .text3{
+    width:640px;
+    height:200px;
+    visibility:hidden;
+    opacity:0;
+    bottom:0;
+    background:url(../img/07-3.png) no-repeat;
+}
+
+/**
+ * Section7
+ ********************************************************************************************************/
+#section7{
+    width:640px;
+    height:1008px;
+    visibility:hidden;
+    opacity:0;
+    overflow:hidden;
+
+}
+#section7 .in{
+    width:930px;
+    height:1008px;
+    background:url(../img/08.jpg) no-repeat;
+    transform:translate(0,0,0);
+}
+
+#section7 .text1{
+    width:640px;
+    height:109px;
+    visibility:hidden;
+    opacity:0;
+    top:517px;
+    background:url(../img/08-1.png) no-repeat;
+}
+
+#section7  .light{
+    width:150px;
+    height:150px;
+    background:url(../img/08-2.png) no-repeat;
+    transform:scale(0.8,0.8);
+    animation: light_scale 2s linear 0s infinite alternate;
+    left:344px;
+    top:-116px;
+    z-index:10;
+}
+#section7 .lightIn{
+    width:150px;
+    height:150px;
+    background:url(../img/08-3.png) no-repeat;
+    animation: light_rotate 15s linear 0s infinite;
+    z-index:10;
+}
+
+/**
+ * Section8
+ ********************************************************************************************************/
+#section8{
+    width:640px;
+    height:1008px;
+    visibility:hidden;
+    opacity:0;
+    overflow:hidden;
+
+}
+#section8 .in{
+    width:847px;
+    height:1318px;
+    background:url(../img/09.jpg) no-repeat;
+    transform:translate(0,0,0);
+}
+
+#section8 .text1{
+    width:640px;
+    height:45px;
+    margin-top:312px;
+    visibility:hidden;
+    opacity:0;
+}
+#section8 .text2{
+    width:640px;
+    height:45px;
+    visibility:hidden;
+    opacity:0;
+}
+
+#section8 .text3{
+    width:640px;
+    height:148px;
+    visibility:hidden;
+    opacity:0;
+    top:668px;
+    background:url(../img/09-3.png) no-repeat;
+}
+
+/**
+ * Section9
+ ********************************************************************************************************/
+#section9{
+    width:640px;
+    height:1008px;
+    visibility:hidden;
+    opacity:0;
+    overflow:hidden;
+    background:url(../img/10.jpg) no-repeat;
+}
+#section9 .text1{
+    width:640px;
+    height:50px;
+    margin-top:312px;
+    visibility:hidden;
+    opacity:0;
+}
+#section9 .text2{
+    width:640px;
+    height:50px;
+    visibility:hidden;
+    opacity:0;
+}
+
+#section9 .text3{
+    width:640px;
+    height:196px;
+    visibility:hidden;
+    opacity:0;
+    bottom:0;
+    background:url(../img/10-3.png) no-repeat;
+}
+
+/**
+ * Section10
+ ********************************************************************************************************/
+#section10{
+    width:640px;
+    height:1008px;
+    visibility:hidden;
+    opacity:0;
+    overflow:hidden;
+    background:url(../img/11.jpg) no-repeat;
+}
+#section10 .text1{
+    width:640px;
+    height:50px;
+    margin-top:365px;
+    visibility:hidden;
+    opacity:0;
+}
+#section10 .text2{
+    width:640px;
+    height:50px;
+    visibility:hidden;
+    opacity:0;
+}
+
+#section10 .text3{
+    width:640px;
+    height:196px;
+    visibility:hidden;
+    opacity:0;
+    bottom:0;
+    background:url(../img/11-3.png) no-repeat;
+}
+
+/**
+ * Section11
+ ********************************************************************************************************/
+#section11{
+    width:640px;
+    height:1008px;
+    visibility:hidden;
+    opacity:0;
+    overflow:hidden;
+    background:url(../img/queued/water_000.jpg) no-repeat;
+}
+#section11 #s4{ top:0;}
+#section11 .text1{
+    width:640px;
+    height:50px;
+    margin-top:225px;
+    visibility:hidden;
+    opacity:0;
+}
+
+#section11 .text3{
+    width:640px;
+    height:71px;
+    bottom:285px;
+    z-index:10;
+    visibility:hidden;
+    opacity:0;
+}
+
+
+#section11 .text2{
+    width:640px;
+    height:150px;
+    visibility:hidden;
+    opacity:0;
+    top:690px;
+    background:url(../img/12-2.png) no-repeat;
+}
+
+/**
+ * Section12
+ ********************************************************************************************************/
+#section12{
+    width:640px;
+    height:1008px;
+    visibility:hidden;
+    opacity:0;
+    background:#000;
+}
+#section12 #s3{ top:0;}
+
+/**
+ * Section13
+ ********************************************************************************************************/
+#section13{
+    width:640px;
+    height:1040px;
+    visibility:hidden;
+    opacity:0;
+    background:#000;
+}
+
+
+#section13 .bottoms{
+    width:640px;
+    height:1040px;
+    background:url(../13.14.s.img/14.jpg) no-repeat;
+    z-index:1;
+    top:0;
+    transition:all 6s ease-in-out;
+    transform:scale(0.95,0.95);
+
+}
+
+#section13 .tops{
+    width:640px;
+    height:316px;
+    background:url(../13.14.s.img/14-1.png) no-repeat;
+    z-index:10;
+    top:0;
+    visibility:hidden;
+    opacity:0;
+    transition:all 0.9s linear 0.8s;
+}
+#section13 .tops1{
+    width:640px;
+    height:124px;
+    background:url(../13.14.s.img/14-2.png) no-repeat;
+    z-index:10;
+    top:830px;
+    visibility:hidden;
+    opacity:0;
+    transition:all 0.9s linear 1s;
+}
+
+
+/**
+ * Section14
+ ********************************************************************************************************/
+#section14{
+    width:640px;
+    height:1040px;
+    visibility:hidden;
+    opacity:0;
+    background:#000;
+    overflow:hidden;
+}
+
+#section14 .pp{
+    width:640px;
+    height:1040px;
+    visibility:hidden;
+    opacity:0;
+    background:#000;
+    overflow:hidden;
+    top:0;
+}
+
+#section14 .bottoms{
+    width:427px;
+    height:523px;
+    background:url(../13.14.s.img/15-1.jpg) no-repeat;
+    z-index:1;
+    top:100px;
+    left:-64px;
+    /*transition:all 6s ease-in-out;*/
+    transform:scale(0.95,0.95);
+
+}
+
+#section14 .bottoms1{
+    width:547px;
+    height:354px;
+    background:url(../13.14.s.img/15-2.jpg) no-repeat;
+    z-index:1;
+    top:686px;
+    right:0px;
+    /*transition:all 6s ease-in-out;*/
+    transform:scale(0.95,0.95);
+
+}
+
+#section14 .tops{
+    width:640px;
+    height:179px;
+    background:url(../13.14.s.img/15-1-1.png) no-repeat;
+    z-index:10;
+    top:212px;
+    visibility:hidden;
+    opacity:0;
+    /*transition:all 0.9s linear 0.8s;*/
+}
+#section14 .tops1{
+    width:640px;
+    height:192px;
+    background:url(../13.14.s.img/15-2-1.png) no-repeat;
+    z-index:10;
+    top:547px;
+    visibility:hidden;
+    opacity:0;
+    /*transition:all 0.9s linear 2.8s;*/
+}
+
+#section14 .text1{
+    width:640px;
+    height:51px;
+    margin-top:350px;
+    visibility:hidden;
+    opacity:0;
+}
+#section14 .text2{
+    width:640px;
+    height:41px;
+    visibility:hidden;
+    opacity:0;
+}
+#section14 .text3{
+    width:640px;
+    height:178px;
+    visibility:hidden;
+    opacity:0;
+    bottom:143px;
+}
+#section14 .text4{
+    width:640px;
+    height:318px;
+    visibility:hidden;
+    opacity:0;
+    top:350px;
+}
+/**
+ * Section15
+ ********************************************************************************************************/
+#section15{
+    width:320px;
+    height:400px;
+    visibility:hidden;
+    opacity:0;
+    right:0;
+    top:350px;
+    background:url(../img/15-4.png) no-repeat;
+}
+input[type="text"] {
+    font-family:"微软雅黑";
+    border: 2px solid #6f748d;
+    background:#FFF;
+    padding: 4px 8px;
+    width:257px;
+    height:44px;
+    font-size: 18px;
+    line-height:22px;
+    color: #797979;
+    box-sizing:border-box;
+    border-radius:0;
+}
+#section15 .realname{
+    left:26px;
+    top:168px;
+}
+#section15 .phone{
+    left:26px;
+    top:228px;
+}
+
+.submit_btn{
+    width:182px;
+    height:36px;
+    background:url(../img/15-5.png) no-repeat;
+    cursor: pointer;
+    left:62px;
+    top:309px;
+}
+
+#section16{
+    width:320px;
+    height:400px;
+    visibility:hidden;
+    opacity:0;
+    right:0;
+    top:320px;
+    background:url(../img/16.png) no-repeat;
+}
+.u-globalAudio.z-play .icon-music{
+    animation:reverseRotataZ 1.2s linear infinite;
+}
+.u-globalAudio .icon-music{
+    width:54px;
+    height:54px;
+    background:url(../img/units-icons.png);
+    display:block;
+}
+
+.u-globalAudio {
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px;
+    position: fixed;
+    left: 50%;
+    margin-left: 248px;
+    top: 28px;
+    display: block;
+    z-index: 9999;
+}
+.u-globalAudio span {
+    position: absolute;
+    left: -60px;
+    top: 10px;
+    text-shadow: 1px 1px 1px #000;
+    letter-spacing: 2px;
+
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+/**
+ * 动画
+ ********************************************************************************************************/
+
+@keyframes fade{
+    0%{ opacity: 1;}
+    100%{ opacity:0.8;}
+}
+
+@keyframes scale{
+    0%{ opacity: 0.7;transform:scale(0.3,0.3);}
+    100%{ opacity:0.1;transform:scale(1,1);}
+}
+
+@keyframes zoom_move{
+    0%{ transform:translate(63px,50px);}
+    33.3%{ transform:translate(28px,0px);}
+    66.61%{ transform:translate(80px,-17px);}
+    100%{ transform:translate(63px,50px);}
+}
+
+@keyframes hand_move{
+    0%{ transform:translateX(338px);}
+    70%{ transform:translateX(284px);}
+    100%{ transform:translateX(284px);}
+}
+
+@keyframes light_rotate{
+    0%{ transform:rotate(0deg);}
+    100%{ transform:rotate(359deg);}
+}
+
+@keyframes light_scale{
+    0%{ transform:scale(0.8,0.8);}
+    100%{ transform:scale(1,1);}
+}
+@keyframes cur_move{
+    0%{ transform:translateY(62px);}
+    100%{ transform:translateY(57px);}
+}
+
+@keyframes shine{
+    0%{ opacity:0.5;}
+    100%{ opacity:1;}
+}
+@keyframes shine1{
+    0%{ opacity:0;}
+    100%{ opacity:1;}
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3)
+{
+    #container{
+        top:-150px;
+    }
+}
+@-webkit-keyframes reverseRotataZ{0%{-webkit-transform:rotateZ(0deg)}100%{-webkit-transform:rotateZ(-360deg)}}

@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ch">
+<head>
+    <title>雅诗兰黛奢宠白金</title>
+    <meta charset="utf-8" />
+    <meta name="apple-touch-fullscreen" content="YES" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta http-equiv="Expires" content="-1" />
+    <meta http-equiv="pragram" content="no-cache" />
+    <!--<link href="css/main.css" rel="stylesheet" type="text/css">-->
+    <link href="css/other.css" rel="stylesheet" type="text/css">
+    <script src="js/init.js"></script>
+    <script src="js/prefixfree.min.js"></script>
+    <script src="js/WeixinApi.js"></script>
+
+    <script type="text/javascript">
+        (function() {
+            window._CiQ10286 = window._CiQ10286 || [];
+            window._CiQ10286.push(['_cookieUseRootDomain', true]);
+            var c = document.createElement('script');
+            c.type = 'text/javascript';
+            c.async = true;
+            c.charset = 'utf-8';
+            c.src = '//collect.cn.miaozhen.com/ca/10286';
+            var h = document.getElementsByTagName('script')[0];
+            h.parentNode.insertBefore(c, h);
+        })();
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-56386592-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <noscript>
+        <link href="//collect.cn.miaozhen.com/refer/collect?i=10286&v=13922245942&pu=http%3A//%28NoScriptPageviews%29&pt=NoScriptPageviews&ru=http%3A//%28NoScriptClients%29&csh=1000&csw=1000&css=10" rel="stylesheet" type="text/css" />
+    </noscript>
+
+</head>
+<body>
+<a href="javascript:playMusic();" class="u-globalAudio z-play">
+    <i class="icon-music"></i>
+    <audio id="audio" src="music/bgmusic.mp3" loop></audio>
+    <span class="">开启</span>
+</a>
+
+<!--<canvas id="canvas" width="640" height="1008"></canvas>-->
+<section id="container">
+    <!-- Section1 Start-->
+    <section id="section1" class="abs">
+        <div id="html5Loader" class="abs">0%</div>
+        <div id="starsky" class="abs"></div>
+        <canvas id="s1" class="abs" width="640" height="1008"></canvas>
+        <div class="text1"><img src="13.14.s.img/01-1.png"></div>
+        <div class="text2"><img src="13.14.s.img/01-2.png"></div>
+    </section>
+    <!-- Section1 End-->
+
+    <!-- Section5 Start-->
+    <section id="section5" class="abs">
+        <div class="in abs"></div>
+        <div class="text1"><img src="img/06-3.png"></div>
+        <div class="text2"><img src="img/06-4.png"></div>
+        <div class="text3"><img src="img/06-5.png"></div>
+        <div class="text4 abs"><div class="hand"></div></div>
+    </section>
+    <!-- Section5 End-->
+
+    <!-- Section2 Start-->
+    <section id="section2" class="abs">
+        <div class="shine abs"></div>
+        <div class="text1"><img src="img/02-1.png"></div>
+        <div class="text2"><img src="img/02-2.png"></div>
+        <div class="text3 abs">
+            <div class="dot1 dot abs dotani1"></div>
+            <div class="dot1 dot abs dotani2"></div>
+            <div class="dot1 dot abs dotani3"></div>
+            <div class="dot1 dot abs dotani4"></div>
+        </div>
+    </section>
+    <!-- Section2 End-->
+
+    <!-- Section10 Start-->
+    <section id="section10" class="abs">
+        <div class="text1"><img src="img/11-1.png"></div>
+        <div class="text2"><img src="img/11-2.png"></div>
+    </section>
+    <!-- Section10 End-->
+
+    <!-- Section13 Start-->
+    <section id="section13" class="abs">
+        <div class="bottoms abs"></div>
+        <div class="tops abs"></div>
+        <div class="tops1 abs"></div>
+    </section>
+    <!-- Section13 End-->
+
+
+    <!-- Section14 Start-->
+    <section id="section14" class="abs">
+        <div class="bottoms abs"></div>
+        <div class="pp"><div class="bottoms1 abs"></div></div>
+        <div class="tops abs"></div>
+        <div class="tops1 abs"></div>
+    </section>
+    <!-- Section14 End-->
+
+</section>
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/quo.js"></script>
+<script src="js/TweenMax.min.js"></script>
+<script src="js/preloadjs-0.4.1.min.js"></script>
+<script src="js/app-new.js"></script>
+<script>
+    WeixinApi.ready(function(Api) {
+        // 微信分享的数据
+        var wxData = {
+            "appId": "", // 服务号可以填写appId
+            "imgUrl": 'http://www.el-lady.com.cn/rndiamondserum/share.jpg',
+            "link": 'http://www.el-lady.com.cn/rndiamondserum/index.php',
+            "desc": '雅诗兰黛蕴能双钻精华，登新生能量巅峰，焕无尽活能！',
+            "title": "雅诗兰黛奢宠白金"
+        };
+        // 分享的回调
+        var wxCallbacks = {
+            // 分享操作开始之前
+            ready: function() {
+            },
+            // 分享被用户自动取消
+            cancel: function(resp) {
+            },
+            // 分享失败了
+            fail: function(resp) {
+            },
+            // 分享成功
+            confirm: function(resp) {
+            },
+            // 整个分享过程结束
+            all: function(resp) {
+            }
+        };
+        // 用户点开右上角popup菜单后，点击分享给好友，会执行下面这个代码
+        Api.shareToFriend(wxData, wxCallbacks);
+        // 点击分享到朋友圈，会执行下面这个代码
+        Api.shareToTimeline(wxData, wxCallbacks);
+        // 点击分享到腾讯微博，会执行下面这个代码
+        Api.shareToWeibo(wxData, wxCallbacks);
+    });
+</script>
+</body>
+</html>
