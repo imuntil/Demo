@@ -3,15 +3,27 @@
 <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="../../collections/sweetalert/lib/sweet-alert.css"/>
 </head>
 <body>
 <div id="div"></div>
-<script src="../../zepto.js"></script>
+<script src="../../collections/zepto/zepto.js"></script>
+<script src="../../collections/zepto/event.js"></script>
+
+<script src="../../collections/sweetalert/lib/sweet-alert.js"></script>
+
+<button>sweetalert</button>
 <script>
     var div = document.getElementById('div');
     var zdiv = $('#div');
     console.log(div);
     console.log(zdiv);
+
+    $(function () {
+        $('button').click(function () {
+            swal('success', 'message', 'success');
+        });
+    })
 </script>
 </body>
 </html>
