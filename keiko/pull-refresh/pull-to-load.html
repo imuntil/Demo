@@ -41,18 +41,19 @@
                     $('#wrapper > #scroller > ul').append('<li>Pretty row Refreshed</li>');
                     $('#wrapper > #scroller > ul').append('<li>Pretty row Refreshed</li>');
                     $('#wrapper > #scroller > ul').append('<li>Pretty row Refreshed</li>');
-//                    $('#wrapper > #scroller > ul').append('<li>Pretty row Refreshed</li>');
-//                    $('#wrapper > #scroller > ul').append('<li>Pretty row Refreshed</li>');
-//                    $('#wrapper > #scroller > ul').append('<li>Pretty row Refreshed</li>');
-//                    $('#wrapper > #scroller > ul').append('<li>Pretty row Refreshed</li>');
-//                    $('#wrapper > #scroller > ul').append('<li>Pretty row Refreshed</li>');
-//                    $('#wrapper > #scroller > ul').append('<li>Pretty row Refreshed</li>');
-//                    $('#wrapper > #scroller > ul').append('<li>Pretty row Refreshed</li>');
-//                    $('#wrapper > #scroller > ul').append('<li>Pretty row Refreshed</li>');
-//                    $('#wrapper > #scroller > ul').append('<li>Pretty row Refreshed</li>');
-//                    $('#wrapper > #scroller > ul').append('<li>Pretty row Refreshed</li>');
-//                    $('#wrapper > #scroller > ul').append('<li>Pretty row Refreshed</li>');
+                    $('#wrapper > #scroller > ul').append('<li>Pretty row Refreshed</li>');
+                    $('#wrapper > #scroller > ul').append('<li>Pretty row Refreshed</li>');
+                    $('#wrapper > #scroller > ul').append('<li>Pretty row Refreshed</li>');
+                    $('#wrapper > #scroller > ul').append('<li>Pretty row Refreshed</li>');
+                    $('#wrapper > #scroller > ul').append('<li>Pretty row Refreshed</li>');
+                    $('#wrapper > #scroller > ul').append('<li>Pretty row Refreshed</li>');
+                    $('#wrapper > #scroller > ul').append('<li>Pretty row Refreshed</li>');
+                    $('#wrapper > #scroller > ul').append('<li>Pretty row Refreshed</li>');
+                    $('#wrapper > #scroller > ul').append('<li>Pretty row Refreshed</li>');
+                    $('#wrapper > #scroller > ul').append('<li>Pretty row Refreshed</li>');
+                    $('#wrapper > #scroller > ul').append('<li>Pretty row Refreshed</li>');
                 } else if (refresh && next_page) {
+                    console.log(next_page);
                     // Loading the next-page content and refreshing
                     $('#wrapper > #scroller > ul').append('<li>Pretty row X</li>');
                     $('#wrapper > #scroller > ul').append('<li>Pretty row X</li>');
@@ -70,6 +71,7 @@
 
                 if (refresh) {
 
+                    console.log('refresh');
                     myScroll.refresh();
                     pullActionCallback();
 
@@ -118,30 +120,34 @@
 
             } else if (pullUpEl && pullUpEl.className.match('loading')) {
 
-                $('.pullUp').removeClass('loading').html('');
+                pullUpEl.className = 'pullUp';
+                pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Pull up to load more';
 
             }
         }
 
-        var pullActionDetect = {
-            count:0,
-            limit:10,
-            check:function(count) {
-                if (count) {
-                    pullActionDetect.count = 0;
-                }
-                // Detects whether the momentum has stopped, and if it has reached the end - 200px of the scroller - it trigger the pullUpAction
-                setTimeout(function() {
-                    if (myScroll.y <= (myScroll.maxScrollY + 200) && pullUpEl && !pullUpEl.className.match('loading')) {
-                        $('.pullUp').addClass('loading').html('<span class="pullUpIcon">&nbsp;</span><span class="pullUpLabel">Loading...</span>');
-                        pullUpAction();
-                    } else if (pullActionDetect.count < pullActionDetect.limit) {
-                        pullActionDetect.check();
-                        pullActionDetect.count++;
-                    }
-                }, 200);
-            }
-        }
+//        var pullActionDetect = {
+//            count:0,
+//            limit:10,
+//            check:function(count) {
+//                if (count) {
+//                    pullActionDetect.count = 0;
+//                }
+//                // Detects whether the momentum has stopped, and if it has reached the end - 200px of the scroller - it trigger the pullUpAction
+//                setTimeout(function() {
+//                    if (myScroll.y <= (myScroll.maxScrollY - 80) && pullUpEl && !pullUpEl.className.match('loading')) {
+//                        console.log('pull up');
+//                        $('.pullUp').addClass('loading').html('<span class="pullUpIcon">&nbsp;</span><span class="pullUpLabel">Loading...</span>');
+//                        pullUpAction();
+//                    } else if (pullActionDetect.count < pullActionDetect.limit) {
+//                        pullActionDetect.check();
+//                        pullActionDetect.count++;
+//
+//                        console.log(pullActionDetect.count);
+//                    }
+//                }, 200);
+//            }
+//        }
 
         function trigger_myScroll(offset) {
             pullDownEl = document.querySelector('#wrapper .pullDown');
@@ -168,7 +174,15 @@
             }
 
             myScroll = new IScroll('#wrapper', {
-                probeType:1, tap:true, click:false, preventDefaultException:{tagName:/.*/}, mouseWheel:true, scrollbars:true, fadeScrollbars:true, interactiveScrollbars:false, keyBindings:false,
+                probeType:1,
+                tap:true,
+                click:false,
+                preventDefaultException:{tagName:/.*/},
+//                mouseWheel:true,
+                scrollbars:true,
+                fadeScrollbars:true,
+                interactiveScrollbars:false,
+                keyBindings:false,
                 deceleration:0.0002,
                 startY:(parseInt(offset)*(-1))
             });
@@ -185,14 +199,20 @@
                         pullDownEl.className = 'pullDown flip';
                         pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Release to refresh';
                         this.minScrollY = 0;
-                    } else if (this.y <= 5 && pullDownEl && pullDownEl.className.match('flip')) {
-                        pullDownEl.className = 'pullDown';
-                        pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Pull down to refresh';
-                        this.minScrollY = -pullDownOffset;
+                    }
+//                    else if (this.y <= 5 && pullDownEl && pullDownEl.className.match('flip')) {
+//                        console.log('abc');
+//                        pullDownEl.className = 'pullDown';
+//                        pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Pull down to refresh';
+//                        this.minScrollY = -pullDownOffset;
+//                    }
+
+                    if (this.y < this.maxScrollY && !pullUpEl.className.match('flip')) {
+                        pullUpEl.className = 'pullUp flip';
+                        pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Release to load more';
                     }
 
-                    console.log(this.y);
-                    pullActionDetect.check(0);
+//                    pullActionDetect.check(0);
 
                 }
             });
@@ -207,8 +227,14 @@
                         pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Loading...';
                         pullDownAction();
                     }
+                    else if (pullUpEl && pullUpEl.className.match('flip')) {
+                        pullUpEl.className = 'pullUp loading';
+                        pullUpEl.querySelector('.pullUpLabel').innerHTML = 'loading';
+                        pullUpAction();
+                    }
+
                     // We let the momentum scroll finish, and if reached the end - loading the next page
-                    pullActionDetect.check(0);
+//                    pullActionDetect.check(0);
                 }
             });
 
@@ -335,9 +361,16 @@
         .pullDown .pullDownIcon, .pullUp .pullUpIcon {display:block;float:left;opacity:0.4;width:40px;height:40px;background:url(pull_to_refresh.png) 0 0 no-repeat;-webkit-background-size:40px 80px;-ms-background-size:40px 80px; background-size:40px 80px;-webkit-transition-property:-webkit-transform;-ms-transition-property:-webkit-transform;-webkit-transition-duration:250ms;-ms-transition-duration:250ms}
         .pullDown .pullDownIcon {-webkit-transform:rotate(0deg) translateZ(0);-ms-transform:rotate(0deg) translateZ(0)}
         .pullUp .pullUpIcon  {-webkit-transform:rotate(-180deg) translateZ(0);-ms-transform:rotate(-180deg) translateZ(0)}
-        .pullDown.flip .pullDownIcon {-webkit-transform:rotate(-180deg) translateZ(0);-ms-transform:rotate(-180deg) translateZ(0)}
+        .pullDown.flip .pullDownIcon {
+            -webkit-transform:rotate(-180deg) translateZ(0);
+            -ms-transform:rotate(-180deg) translateZ(0)
+        }
         .pullUp.flip .pullUpIcon {-webkit-transform:rotate(0deg) translateZ(0);-ms-transform:rotate(0deg) translateZ(0)}
         .pullDown.loading .pullDownIcon, .pullUp.loading .pullUpIcon {background-position:0 100%;-webkit-transform:rotate(0deg) translateZ(0);-ms-transform:rotate(0deg) translateZ(0);-webkit-transition-duration:0ms;-ms-transition-duration:0ms;-webkit-animation-name:loading;-ms-animation-name:loading;-webkit-animation-duration:1s;-ms-animation-duration:1s;-webkit-animation-iteration-count:infinite;-ms-animation-iteration-count:infinite;-webkit-animation-timing-function:linear;-ms-animation-timing-function:linear}
+
+        .pullUp .pullUpIcon {
+            transform:rotate(180deg)
+        }
 
         @-webkit-keyframes loading {
             from {-webkit-transform:rotate(0deg) translateZ(0)}
@@ -360,7 +393,10 @@
             <span class="pullDownLabel">Pull down to refresh...</span>
         </div>
         <ul></ul>
-        <div class="pullUp"></div>
+        <div class="pullUp">
+            <span class="pullUpIcon">&nbsp;</span>
+            <span class="pullUpLabel">Pull up to load more...</span>
+        </div>
     </div>
 </div>
 <div id="footer"></div>
