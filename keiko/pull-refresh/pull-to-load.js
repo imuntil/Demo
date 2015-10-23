@@ -59,7 +59,10 @@
     }
 
     function pullDownAction() {
-        loadContent('refresh');
+
+        setTimeout(function () {
+            loadContent('refresh');
+        }, 500);
 
         currentPage = 1;
         $('#wrapper > .scroller').css({top:0});
@@ -67,8 +70,9 @@
 
     function pullUpAction() {
         currentPage += 1;
-        loadContent('load');
-
+        setTimeout(function () {
+            loadContent('load');
+        }, 500);
     }
 
     function pullActionCallback() {
