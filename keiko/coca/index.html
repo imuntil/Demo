@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; user-scalable=0" />
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        canvas {
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        input {
+            color: #000;
+            position: relative;
+            display: block;
+            margin: 100px auto;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+<input type="text"/>
+<canvas id="canvas"></canvas>
+
+<script src="../../Tools/easeljs-NEXT.min.js"></script>
+<script src="../../Tools/preloadjs-0.6.1.min.js"></script>
+<script src="../../Tools/zepto.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
