@@ -102,7 +102,7 @@
             $(pullUpEl).hide();
             offset = 0;
         } else if (!offset) {
-            offset = pullUpOffset;
+            offset = pullDownOffset;
         }
 
         myScroll = new IScroll('#wrapper', {
