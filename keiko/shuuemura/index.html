@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="../../Tools/animate.css"/>
+    <script src="../tsingtao-demo/zepto.js"></script>
+    <script src="../tsingtao-demo/zepto-touch.js"></script>
+    <title></title>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .container,
+        section.page {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .container {
+            overflow: hidden;
+        }
+        .page-1 {
+            background-color: red;
+        }
+        .page-2 {
+            background-color: orange;
+        }
+        .page-3 {
+            background-color: yellow;
+        }
+        .page-4 {
+            background-color: green;
+        }
+        .page-5 {
+            background-color: #00d6b2;
+        }
+        .page-6 {
+            background-color: dodgerblue;
+        }
+        .page-7 {
+            background-color: mediumpurple;
+        }
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+            height: 50px;
+            background-color: white;
+            color: #000;
+        }
+        .header li {
+            list-style: none;
+            float: left;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <ul>
+        <li page-id="1">page-2</li>
+        <li page-id="2">page-3</li>
+        <li page-id="3">page-4</li>
+    </ul>
+</div>
+<div class="container">
+    <section class="page page-1"></section>
+    <section class="page page-2"></section>
+    <section class="page page-3"></section>
+    <section class="page page-4"></section>
+    <section class="page page-5"></section>
+    <section class="page page-6"></section>
+    <section class="page page-7"></section>
+</div>
+<script src="transform-page.js"></script>
+<script>
+    $(function () {
+        $('.container')
+                .swipeUp(function () {
+                    Pt.toNext();
+                })
+                .swipeDown(function () {
+                    Pt.toPrev();
+                });
+
+        $('.header li').click(function () {
+            var page = $(this).attr('page-id');
+            Pt.go(page);
+        });
+    });
+</script>
+</body>
+</html>
